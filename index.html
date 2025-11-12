@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورشة عمل تفاعلية - مركز الخرطرم للغات والحاسوب </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F5E8B5;
+            --gold-dark: #B8860B;
+            --black: #121212;
+            --black-light: #1E1E1E;
+            --gray: #2C2C2C;
+            --white: #F5F5F5;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* تصميم الرأس */
+        header {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 0.95));
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            color: var(--gold);
+        }
+        
+        .logo i {
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        
+        /* قسم البطل */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.9)), 
+                        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 10%, var(--black) 90%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--gold-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .section-title p {
+            color: var(--gold-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .workshop-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .detail-card {
+            background: linear-gradient(145deg, var(--black-light), var(--gray));
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .detail-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--gold-dark));
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .detail-card i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        
+        .detail-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .detail-card p {
+            color: var(--gold-light);
+        }
+        
+        .registration-form {
+            background: linear-gradient(145deg, var(--black-light), var(--gray));
+            border-radius: 20px;
+            padding: 3.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            max-width: 850px;
+            margin: 0 auto;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+        
+        .registration-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--gold-dark));
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            color: var(--white);
+        }
+        
+        .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            outline: none;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .participants-list {
+            margin-top: 4rem;
+        }
+        
+        .participants-table-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .participants-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: linear-gradient(145deg, var(--black-light), var(--gray));
+            min-width: 800px;
+        }
+        
+        .participants-table th,
+        .participants-table td {
+            padding: 1.2rem 1rem;
+            text-align: right;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .participants-table th {
+            background: linear-gradient(to right, var(--gold), var(--gold-dark));
+            color: var(--black);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .participants-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .participants-table tr:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gold-light);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--black-light), var(--black));
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.8rem;
+            font-size: 1.3rem;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -8px;
+            right: 0;
+        }
+        
+        .footer-section p {
+            margin-bottom: 1.2rem;
+            color: var(--gold-light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+        
+        .social-links a {
+            color: var(--gold);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            background: rgba(212, 175, 55, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            color: var(--black);
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--gold-light);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, var(--black-light), var(--gray));
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            animation: modalFade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .modal-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--gold-dark));
+            border-radius: 20px 20px 0 0;
+        }
+        
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .modal h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: var(--gold-light);
+            line-height: 1.8;
+        }
+        
+        .modal .btn {
+            margin-top: 1rem;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            
+            .registration-form {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background: var(--black-light);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                border-top: 2px solid var(--gold);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .registration-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .workshop-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .detail-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                    <span>ورشة برمجة وتطوير الويب</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">عن الورشة</a></li>
+                    <li><a href="#details">التفاصيل</a></li>
+                    <li><a href="#registration">التسجيل</a></li>
+                    <li><a href="#participants">المسجلين</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ورشة تطوير الويب لبدء مسيرة مهنية</h1>
+                <p>انضم إلى رحلتنا الاستثنائية لاكتساب مهارات المستقبل في عالم التكنولوجيا وتطوير وبرمجة مواقع الويب</p>
+                <a href="#registration" class="btn">سجل الآن <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عن الورشة -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>عن الورشة</h2>
+                <p>ورشة استثنائية تجمع بين الخبرة العملية والرؤية المستقبلية في مجال تطوير الويب والمواقع الإلكترونية والتحول الرقمي</p>
+            </div>
+            <div class="workshop-details">
+                <div class="detail-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>تعلم عملي متقدم</h3>
+                    <p>جلسات عملية تفاعلية تركز على التطبيق المباشر لأحدث التقنيات والمهارات الرقمية</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-users"></i>
+                    <h3>مجتمع مطوري الويب</h3>
+                    <p>انضم إلى مجتمع من المحترفين والمبتكرين لتبادل الخبرات وبناء شبكة علاقات قوية</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>شهادة معتمدة</h3>
+                    <p>احصل على شهادة معتمدة من مركز الخرطوم للغات والحاسوب بعد إتمام الورشة بنجاح تعزز مسارك المهني</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التفاصيل -->
+    <section id="details" class="section" style="background: linear-gradient(135deg, var(--black-light), var(--black));">
+        <div class="container">
+            <div class="section-title">
+                <h2>تفاصيل الورشة</h2>
+                <p>تعرف على محاور الورشة والتوقيت والمكان والاستثمار</p>
+            </div>
+            <div class="workshop-details">
+                <div class="detail-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>التاريخ والوقت</h3>
+                    <p>تبدأ الورشة في 30 نوفمبر 2025</p>
+                    <p>يوم السبت من الساعة 12:00 مساءً حتى 3:00 مساءً</p>
+                    <p>مدة الورشة: 3 ساعات</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>المكان</h3>
+                    <p>قاعة المؤتمرات - مركز الخرطوم</p>
+                    <p>أو عبر المنصة الافتراضية المتطورة (خيار المشاركة عن بعد غير متاح حالياً)</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-list-alt"></i>
+                    <h3>المحاور الرئيسية</h3>
+                    <p>• ما هو الويب</p>
+                    <p>• تطوير الويب والتطبيقات الحديثة</p>
+                    <p>• كيف يعمل الويب</p>
+                    <p>• الأمن السيبراني وحماية البيانات</p>
+                    <p>• التسويق الرقمي المتقدم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التسجيل -->
+    <section id="registration" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>سجل في الورشة</h2>
+                <p>املأ النموذج أدناه للتسجيل في ورشة برمجة وتطوير الويب في التطوير الرقمي</p>
+            </div>
+            <div class="registration-form">
+                <form id="workshopForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">الاسم الأول</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">اسم العائلة</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">المهنة</label>
+                        <input type="text" id="occupation" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">المستوى التقني</label>
+                        <select id="experience" class="form-control" required>
+                            <option value="">اختر مستواك</option>
+                            <option value="مبتدئ">مبتدئ</option>
+                            <option value="متوسط">متوسط</option>
+                            <option value="متقدم">متقدم</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="participation">طريقة المشاركة</label>
+                        <select id="participation" class="form-control" required>
+                            <option value="">اختر طريقة المشاركة</option>
+                            <option value="حضوري">حضوري</option>
+                            <option value="عن بعد">عن بعد</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">ملاحظات إضافية</label>
+                        <textarea id="notes" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">إرسال التسجيل</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم قائمة المسجلين -->
+    <section id="participants" class="section" style="background: linear-gradient(135deg, var(--black-light), var(--black));">
+        <div class="container">
+            <div class="section-title">
+                <h2>المسجلين في الورشة</h2>
+                <p>قائمة بالأشخاص المسجلين في الورشة حتى الآن</p>
+            </div>
+            <div class="participants-list">
+                <div class="participants-table-container">
+                    <table class="participants-table">
+                        <thead>
+                            <tr>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>الهاتف</th>
+                                <th>المهنة</th>
+                                <th>المستوى</th>
+                                <th>المشاركة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="participantsTableBody">
+                            <!-- سيتم ملء هذا القسم ديناميكيًا -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="emptyMessage" class="empty-message">
+                    لا يوجد مسجلين حتى الآن. كن أول المسجلين!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نهاية الصفحة -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن ورشة تطوير الويب</h3>
+                    <p>منصة رائدة في تقديم ورش العمل المتخصصة في مجال التكنولوجيا والمهارات الرقمية بمستوى يمكنك من اكتساب مهارات في الحاسوب. </p>
+                </div>
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <p><i class="fas fa-envelope"></i> info@excellence.com</p>
+                    <p><i class="fas fa-phone"></i> +249 12 345 6789</p>
+                    <p><i class="fas fa-map-marker-alt"></i>  كوستي، ولاية النيل الأبيض</p>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2025 ورشة برمجة وتطوير الويب / مركز الخرطرم 💪</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة التأكيد -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-check-circle"></i> تم التسجيل بنجاح!</h3>
+            <p>شكرًا لتسجيلك في ورشة التميز في التطوير الرقمي. لقد تم إضافة معلوماتك إلى قائمة المسجلين.</p>
+            <p>سيتم التواصل معك قريبًا لتأكيد الحجز وتفاصيل الدفع.</p>
+            <button class="btn" id="closeModal">موافق</button>
+        </div>
+    </div>
+
+    <script>
+        // مصفوفة لتخزين بيانات المسجلين
+        let participants = [];
+
+        // عناصر DOM
+        const workshopForm = document.getElementById('workshopForm');
+        const participantsTableBody = document.getElementById('participantsTableBody');
+        const emptyMessage = document.getElementById('emptyMessage');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const closeModal = document.getElementById('closeModal');
+        const header = document.getElementById('header');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        // تحديث عرض قائمة المسجلين
+        function updateParticipantsTable() {
+            participantsTableBody.innerHTML = '';
+            
+            if (participants.length === 0) {
+                emptyMessage.style.display = 'block';
+                return;
+            }
+            
+            emptyMessage.style.display = 'none';
+            
+            participants.forEach((participant, index) => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${participant.firstName} ${participant.lastName}</td>
+                    <td>${participant.email}</td>
+                    <td>${participant.phone}</td>
+                    <td>${participant.occupation}</td>
+                    <td>${participant.experience}</td>
+                    <td>${participant.participation}</td>
+                `;
+                
+                participantsTableBody.appendChild(row);
+            });
+        }
+
+        // معالجة إرسال النموذج
+        workshopForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // جمع بيانات النموذج
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                occupation: document.getElementById('occupation').value,
+                experience: document.getElementById('experience').value,
+                participation: document.getElementById('participation').value,
+                notes: document.getElementById('notes').value,
+                registrationDate: new Date().toLocaleDateString('ar-SA')
+            };
+            
+            // إضافة المسجل إلى القائمة
+            participants.push(formData);
+            
+            // تحديث الجدول
+            updateParticipantsTable();
+            
+            // إظهار نافذة التأكيد
+            confirmationModal.style.display = 'flex';
+            
+            // إعادة تعيين النموذج
+            workshopForm.reset();
+        });
+
+        // إغلاق نافذة التأكيد
+        closeModal.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+        });
+
+        // إغلاق النافذة عند النقر خارجها
+        window.addEventListener('click', function(e) {
+            if (e.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+        });
+
+        // التمرير السلس للروابط الداخلية
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // إغلاق القائمة المتنقلة إذا كانت مفتوحة
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // إظهار/إخفاء القائمة المتنقلة
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // إضافة تأثير التمرير للرأس
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // إضافة بعض البيانات الأولية للمسجلين
+        participants = [
+            {
+                firstName: "محمد",
+                lastName: "أبوطالب",
+                email: "abotalipson@example.com",
+                phone: "0551234567",
+                occupation: "مطور ويب",
+                experience: "متقدم",
+                participation: "حضوري",
+                notes: "",
+                registrationDate: "2025-11-15"
+            },
+            {
+                firstName: "سهير",
+                lastName: "اسماعيل",
+                email: "suhair@example.com",
+                phone: "0557654321",
+                occupation: "كاتبة محتوي ومدير صفحات",
+                experience: "متوسط",
+                participation: "حضوري",
+                notes: "",
+                registrationDate: "2025-11-20"
+            }
+        ];
+
+        // تحديث الجدول عند تحميل الصفحة
+        updateParticipantsTable();
+    </script>
+</body>
+</html>
