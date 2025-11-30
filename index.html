@@ -34,15 +34,16 @@
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
-        /* تصميم الرأس المحسن */
+        /* تصميم الرأس المحسن للهواتف */
         header {
             background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 0.95));
             color: var(--white);
@@ -68,7 +69,7 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -76,7 +77,7 @@
         }
         
         .logo i {
-            margin-left: 10px;
+            margin-left: 8px;
             animation: pulse 2s infinite;
         }
         
@@ -92,7 +93,7 @@
         }
         
         .nav-links li {
-            margin-right: 1.5rem;
+            margin-right: 1.2rem;
             position: relative;
         }
         
@@ -102,6 +103,7 @@
             font-weight: 500;
             transition: var(--transition);
             padding: 0.5rem 0;
+            font-size: 0.9rem;
         }
         
         .nav-links a:after {
@@ -130,15 +132,18 @@
             cursor: pointer;
         }
         
-        /* قسم البطل المحسن */
+        /* قسم البطل المحسن للهواتف */
         .hero {
-            padding: 12rem 0 8rem;
+            padding: 9rem 0 5rem;
             text-align: center;
             background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.9)), 
                         url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: var(--white);
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         .hero::before {
@@ -156,33 +161,36 @@
             z-index: 1;
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
             background: linear-gradient(to right, var(--gold), var(--gold-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
             animation: fadeInUp 1s ease-out;
+            line-height: 1.3;
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: var(--gold-light);
             animation: fadeInUp 1s ease-out 0.2s both;
+            padding: 0 10px;
         }
         
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: var(--black);
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.8rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -214,52 +222,53 @@
         }
         
         .countdown-container {
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             animation: fadeInUp 1s ease-out 0.6s both;
         }
         
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
         }
         
         .countdown-item {
             background: rgba(212, 175, 55, 0.1);
             border-radius: 10px;
-            padding: 1rem;
-            min-width: 80px;
+            padding: 0.8rem;
+            min-width: 70px;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .countdown-number {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--gold);
             display: block;
         }
         
         .countdown-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gold-light);
         }
         
         /* تصميم الأقسام العامة */
         .section {
-            padding: 6rem 0;
+            padding: 4rem 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
         
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 2rem;
             color: var(--gold);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             position: relative;
             display: inline-block;
         }
@@ -267,10 +276,10 @@
         .section-title h2:after {
             content: '';
             position: absolute;
-            width: 80px;
+            width: 60px;
             height: 3px;
             background: var(--gold);
-            bottom: -10px;
+            bottom: -8px;
             right: 50%;
             transform: translateX(50%);
         }
@@ -279,21 +288,22 @@
             color: var(--gold-light);
             max-width: 600px;
             margin: 0 auto;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            padding: 0 15px;
         }
         
-        /* تصميم البطاقات المحسن */
+        /* تصميم البطاقات المحسن للهواتف */
         .workshop-details {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
         }
         
         .detail-card {
             background: linear-gradient(145deg, var(--black-light), var(--gray));
             border-radius: 15px;
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: var(--transition);
             text-align: center;
@@ -313,35 +323,36 @@
         }
         
         .detail-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
             border-color: rgba(212, 175, 55, 0.3);
         }
         
         .detail-card i {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--gold);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             background: rgba(212, 175, 55, 0.1);
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
             border-radius: 50%;
             text-align: center;
         }
         
         .detail-card h3 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--gold);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
         
         .detail-card p {
             color: var(--gold-light);
             text-align: right;
+            font-size: 0.95rem;
         }
         
-        /* قسم التسجيل المحسن */
+        /* قسم التسجيل المحسن للهواتف */
         #registration {
             background: linear-gradient(135deg, var(--black-light), var(--black));
             position: relative;
@@ -361,8 +372,8 @@
         
         .registration-form {
             background: linear-gradient(145deg, var(--black-light), var(--gray));
-            border-radius: 20px;
-            padding: 3.5rem;
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             max-width: 850px;
             margin: 0 auto;
@@ -379,27 +390,28 @@
             width: 100%;
             height: 5px;
             background: linear-gradient(to right, var(--gold), var(--gold-dark));
-            border-radius: 20px 20px 0 0;
+            border-radius: 15px 15px 0 0;
         }
         
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             font-weight: 500;
             color: var(--gold);
+            font-size: 0.95rem;
         }
         
         .form-control {
             width: 100%;
-            padding: 1rem 1.2rem;
+            padding: 0.9rem 1rem;
             background: rgba(30, 30, 30, 0.7);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
             transition: var(--transition);
             color: var(--white);
         }
@@ -412,45 +424,48 @@
         
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
         }
         
-        /* قسم المسجلين المحسن */
+        /* قسم المسجلين المحسن للهواتف */
         #participants {
             background: linear-gradient(135deg, var(--black-light), var(--black));
         }
         
         .participants-list {
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
         
         .participants-table-container {
             overflow-x: auto;
-            border-radius: 15px;
+            border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(212, 175, 55, 0.1);
+            -webkit-overflow-scrolling: touch;
         }
         
         .participants-table {
             width: 100%;
             border-collapse: collapse;
             background: linear-gradient(145deg, var(--black-light), var(--gray));
-            min-width: 800px;
+            min-width: 600px;
         }
         
         .participants-table th,
         .participants-table td {
-            padding: 1.2rem 1rem;
+            padding: 1rem 0.8rem;
             text-align: right;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            font-size: 0.9rem;
         }
         
         .participants-table th {
             background: linear-gradient(to right, var(--gold), var(--gold-dark));
             color: var(--black);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+            white-space: nowrap;
         }
         
         .participants-table tr:last-child td {
@@ -463,23 +478,22 @@
         
         .participants-table tr:hover {
             background: rgba(212, 175, 55, 0.05);
-            transform: scale(1.01);
         }
         
         .empty-message {
             text-align: center;
-            padding: 3rem;
+            padding: 2.5rem;
             color: var(--gold-light);
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        /* تذييل الصفحة المحسن */
+        /* تذييل الصفحة المحسن للهواتف */
         footer {
             background: linear-gradient(135deg, var(--black-light), var(--black));
             color: var(--white);
-            padding: 4rem 0 2rem;
-            margin-top: 3rem;
+            padding: 3rem 0 1.5rem;
+            margin-top: 2rem;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
             position: relative;
             overflow: hidden;
@@ -497,16 +511,16 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 1;
         }
         
         .footer-section h3 {
-            margin-bottom: 1.8rem;
-            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
             color: var(--gold);
             position: relative;
             display: inline-block;
@@ -515,30 +529,31 @@
         .footer-section h3:after {
             content: '';
             position: absolute;
-            width: 40px;
+            width: 35px;
             height: 2px;
             background: var(--gold);
-            bottom: -8px;
+            bottom: -6px;
             right: 0;
         }
         
         .footer-section p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             color: var(--gold-light);
+            font-size: 0.95rem;
         }
         
         .social-links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
         }
         
         .social-links a {
             color: var(--gold);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: var(--transition);
             background: rgba(212, 175, 55, 0.1);
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -548,16 +563,17 @@
         .social-links a:hover {
             color: var(--black);
             background: var(--gold);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
             color: var(--gold-light);
             position: relative;
             z-index: 1;
+            font-size: 0.9rem;
         }
         
         /* النافذة المنبثقة */
@@ -573,14 +589,15 @@
             justify-content: center;
             align-items: center;
             backdrop-filter: blur(5px);
+            padding: 15px;
         }
         
         .modal-content {
             background: linear-gradient(145deg, var(--black-light), var(--gray));
-            border-radius: 20px;
-            padding: 3rem;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
             max-width: 500px;
-            width: 90%;
+            width: 100%;
             text-align: center;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -596,7 +613,7 @@
             width: 100%;
             height: 5px;
             background: linear-gradient(to right, var(--gold), var(--gold-dark));
-            border-radius: 20px 20px 0 0;
+            border-radius: 15px 15px 0 0;
         }
         
         @keyframes modalFade {
@@ -626,36 +643,88 @@
         
         .modal h3 {
             color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
         }
         
         .modal p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--gold-light);
-            line-height: 1.8;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
         
         .modal .btn {
             margin-top: 1rem;
         }
         
-        /* تصميم متجاوب */
-        @media (max-width: 992px) {
+        /* تصميم متجاوب محسن */
+        @media (min-width: 576px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+            }
+            
+            .countdown-number {
+                font-size: 1.8rem;
             }
             
             .section-title h2 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
             
-            .registration-form {
-                padding: 2.5rem;
+            .form-row {
+                grid-template-columns: 1fr 1fr;
             }
         }
         
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex !important;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+            
+            .hero {
+                padding: 11rem 0 7rem;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section {
+                padding: 5rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2.5rem;
+            }
+            
+            .registration-form {
+                padding: 3rem 2.5rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
             .nav-links {
                 display: none;
                 position: absolute;
@@ -676,70 +745,70 @@
             .nav-links li {
                 margin: 0;
                 text-align: center;
-                padding: 0.8rem 0;
+                padding: 0.7rem 0;
             }
             
             .mobile-menu {
                 display: block;
             }
             
-            .hero {
-                padding: 10rem 0 6rem;
+            .detail-card:hover {
+                transform: translateY(-5px);
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .countdown {
-                flex-wrap: wrap;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .registration-form {
-                padding: 2rem 1.5rem;
-            }
-            
-            .section {
-                padding: 4rem 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .workshop-details {
-                grid-template-columns: 1fr;
+            .participants-table th,
+            .participants-table td {
+                padding: 0.8rem 0.6rem;
+                font-size: 0.85rem;
             }
         }
         
-        @media (max-width: 576px) {
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+                min-height: 90vh;
+            }
+            
             .hero h1 {
                 font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
             
             .btn {
                 padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .countdown-item {
+                min-width: 65px;
+                padding: 0.7rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.4rem;
             }
             
             .section-title h2 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             
             .detail-card {
-                padding: 2rem 1.5rem;
+                padding: 1.8rem 1.2rem;
             }
             
-            .modal-content {
-                padding: 2rem 1.5rem;
+            .registration-form {
+                padding: 2rem 1.2rem;
+            }
+            
+            .form-control {
+                padding: 0.8rem 0.9rem;
             }
         }
     </style>
@@ -775,7 +844,7 @@
                 <a href="#registration" class="btn">سجل الآن <i class="fas fa-arrow-left"></i></a>
                 
                 <div class="countdown-container">
-                    <h3 style="color: var(--gold-light); margin-bottom: 1rem;">العد التنازلي لبدء الورشة</h3>
+                    <h3 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 1.1rem;">العد التنازلي لبدء الورشة</h3>
                     <div class="countdown">
                         <div class="countdown-item">
                             <span class="countdown-number" id="days">00</span>
@@ -929,21 +998,23 @@
                 <p>قائمة بالأشخاص المسجلين في الورشة حتى الآن</p>
             </div>
             <div class="participants-list">
-                <table class="participants-table">
-                    <thead>
-                        <tr>
-                            <th>الاسم</th>
-                            <th>البريد الإلكتروني</th>
-                            <th>الهاتف</th>
-                            <th>المهنة</th>
-                            <th>المستوى</th>
-                            <th>المشاركة</th>
-                        </tr>
-                    </thead>
-                    <tbody id="participantsTableBody">
-                        <!-- سيتم ملء هذا القسم ديناميكيًا -->
-                    </tbody>
-                </table>
+                <div class="participants-table-container">
+                    <table class="participants-table">
+                        <thead>
+                            <tr>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>الهاتف</th>
+                                <th>المهنة</th>
+                                <th>المستوى</th>
+                                <th>المشاركة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="participantsTableBody">
+                            <!-- سيتم ملء هذا القسم ديناميكيًا -->
+                        </tbody>
+                    </table>
+                </div>
                 <div id="emptyMessage" class="empty-message">
                     لا يوجد مسجلين حتى الآن. كن أول المسجلين!
                 </div>
