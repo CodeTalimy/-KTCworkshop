@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ورشة عمل تفاعلية - مركز الخرطرم للغات والحاسوب </title>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,7 +13,7 @@
             --gold-dark: #B8860B;
             --black: #121212;
             --black-light: #1E1E1E;
-            --gray: #2 C2C2C;
+            --gray: #2C2C2C;
             --white: #F5F5F5;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -209,8 +209,7 @@
         .btn:hover:before {
             left: 100%;
         }
-
-    
+        
         /* تصميم السلايدر المحسن */
         
         .section {
@@ -304,6 +303,11 @@
         .detail-card p {
             color: var(--gold-light);
             text-align: right;
+        }
+        
+        /* قسم التسجيل المحسن */
+        #registration {
+            background: linear-gradient(135deg, var(--black-light), var(--black));
         }
         
         .registration-form {
@@ -738,9 +742,8 @@
         </div>
     </section>
     
-    <!-- قسم التسجيل -->
-    
-      <section id="registration" class="section">
+    <!-- قسم التسجيل المحسن -->
+    <section id="registration" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>سجل في الورشة</h2>
@@ -895,7 +898,7 @@
             participants.forEach((participant, index) => {
                 const row = document.createElement('tr');
                 
-                                row.innerHTML = `
+                row.innerHTML = `
                     <td>${participant.firstName} ${participant.lastName}</td>
                     <td>${participant.email}</td>
                     <td>${participant.phone}</td>
@@ -906,6 +909,7 @@
                 
                 participantsTableBody.appendChild(row);
             });
+        }
 
         // معالجة إرسال النموذج
         workshopForm.addEventListener('submit', function(e) {
@@ -989,7 +993,9 @@
             {
                 firstName: "محمد",
                 lastName: "أبوطالب",
+                email: "abotalipson@gmail.com",
                 phone: "0129434516",
+                occupation: "مبرمج",
                 experience: "متقدم",
                 participation: "حضوري",
                 notes: "✨ مقدم للورشة ",
@@ -998,7 +1004,9 @@
             /*{
                 firstName: "سحر",
                 lastName: "الطاهر",
+                email: "sahar@example.com",
                 phone: "0123456789",
+                occupation: "مهندسة",
                 experience: "متوسط",
                 participation: "حضوري",
                 notes: "",
