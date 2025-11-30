@@ -13,7 +13,7 @@
             --gold-dark: #B8860B;
             --black: #121212;
             --black-light: #1E1E1E;
-            --gray: #2C2C2C;
+            --gray: #2 C2C2C;
             --white: #F5F5F5;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -919,17 +919,19 @@
         workshopForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // جمع بيانات النموذج
+            // جمع بيانات 
+        
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
+                occupation: document.getElementById('occupation').value,
                 experience: document.getElementById('experience').value,
                 participation: document.getElementById('participation').value,
                 notes: document.getElementById('notes').value,
                 registrationDate: new Date().toLocaleDateString('ar-SA')
             };
-            
             // إضافة المسجل إلى القائمة
             participants.push(formData);
             
