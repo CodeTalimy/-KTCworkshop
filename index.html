@@ -806,27 +806,88 @@
     </section>
 
     <!-- قسم قائمة المسجلين -->
-    <section id="participants" class="section" style="background: linear-gradient(135deg, var(--black-light), var(--black));">
+    
+    <!-- قسم التسجيل -->
+    <section id="registration" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>سجل في الورشة</h2>
+                <p>املأ النموذج أدناه للتسجيل في ورشة تطوير المهارات الرقمية</p>
+            </div>
+            <div class="registration-form">
+                <form id="workshopForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">الاسم الأول</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">اسم العائلة</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">المهنة</label>
+                        <input type="text" id="occupation" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">المستوى التقني</label>
+                        <select id="experience" class="form-control" required>
+                            <option value="">اختر مستواك</option>
+                            <option value="مبتدئ">مبتدئ</option>
+                            <option value="متوسط">متوسط</option>
+                            <option value="متقدم">متقدم</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="participation">طريقة المشاركة</label>
+                        <select id="participation" class="form-control" required>
+                            <option value="">اختر طريقة المشاركة</option>
+                            <option value="حضوري">حضوري</option>
+                            <option value="عن بعد">عن بعد</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">ملاحظات إضافية</label>
+                        <textarea id="notes" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">إرسال التسجيل</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم قائمة المسجلين -->
+    <section id="participants" class="section" style="background-color: #f0f4ff;">
         <div class="container">
             <div class="section-title">
                 <h2>المسجلين في الورشة</h2>
                 <p>قائمة بالأشخاص المسجلين في الورشة حتى الآن</p>
             </div>
             <div class="participants-list">
-                <div class="participants-table-container">
-                    <table class="participants-table">
-                        <thead>
-                            <tr>
-                                <th>الأسم</th>
-                                <th>الهاتف</th>
-                                <th>المستوى</th>
-                            </tr>
-                        </thead>
-                        <tbody id="participantsTableBody">
-                            <!-- سيتم ملء هذا القسم ديناميكيًا -->
-                        </tbody>
-                    </table>
-                </div>
+                <table class="participants-table">
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>الهاتف</th>
+                            <th>المهنة</th>
+                            <th>المستوى</th>
+                            <th>المشاركة</th>
+                        </tr>
+                    </thead>
+                    <tbody id="participantsTableBody">
+                        <!-- سيتم ملء هذا القسم ديناميكيًا -->
+                    </tbody>
+                </table>
                 <div id="emptyMessage" class="empty-message">
                     لا يوجد مسجلين حتى الآن. كن أول المسجلين!
                 </div>
