@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورشة عمل تفاعلية - مركز الخرطرم للغات والحاسوب </title>
+    <title>ورشة عمل تفاعلية - مركز الخرطرم للغات والحاسوب</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -42,7 +42,7 @@
             padding: 0 20px;
         }
         
-        /* تصميم الرأس */
+        /* تصميم الرأس المحسن */
         header {
             background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 0.95));
             color: var(--white);
@@ -130,11 +130,11 @@
             cursor: pointer;
         }
         
-        /* قسم البطل */
+        /* قسم البطل المحسن */
         .hero {
-            padding: 10rem 0 6rem;
+            padding: 12rem 0 8rem;
             text-align: center;
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.9)), 
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.9)), 
                         url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: var(--white);
             position: relative;
@@ -148,7 +148,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, transparent 10%, var(--black) 90%);
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.2), transparent 50%);
         }
         
         .hero-content {
@@ -165,12 +165,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
             color: var(--gold-light);
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
         
         .btn {
@@ -188,6 +190,7 @@
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
         
         .btn:before {
@@ -210,8 +213,40 @@
             left: 100%;
         }
         
-        /* تصميم السلايدر المحسن */
+        .countdown-container {
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
         
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .countdown-item {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+        }
+        
+        /* تصميم الأقسام العامة */
         .section {
             padding: 6rem 0;
         }
@@ -247,6 +282,7 @@
             font-size: 1.2rem;
         }
         
+        /* تصميم البطاقات المحسن */
         .workshop-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -308,6 +344,19 @@
         /* قسم التسجيل المحسن */
         #registration {
             background: linear-gradient(135deg, var(--black-light), var(--black));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #registration::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
         
         .registration-form {
@@ -319,6 +368,7 @@
             margin: 0 auto;
             border: 1px solid rgba(212, 175, 55, 0.1);
             position: relative;
+            z-index: 1;
         }
         
         .registration-form:before {
@@ -366,6 +416,11 @@
             gap: 1.5rem;
         }
         
+        /* قسم المسجلين المحسن */
+        #participants {
+            background: linear-gradient(135deg, var(--black-light), var(--black));
+        }
+        
         .participants-list {
             margin-top: 4rem;
         }
@@ -402,8 +457,13 @@
             border-bottom: none;
         }
         
+        .participants-table tr {
+            transition: var(--transition);
+        }
+        
         .participants-table tr:hover {
             background: rgba(212, 175, 55, 0.05);
+            transform: scale(1.01);
         }
         
         .empty-message {
@@ -414,12 +474,25 @@
             font-size: 1.2rem;
         }
         
+        /* تذييل الصفحة المحسن */
         footer {
             background: linear-gradient(135deg, var(--black-light), var(--black));
             color: var(--white);
             padding: 4rem 0 2rem;
             margin-top: 3rem;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
         }
         
         .footer-content {
@@ -427,6 +500,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2.5rem;
             margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .footer-section h3 {
@@ -481,8 +556,11 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
             color: var(--gold-light);
+            position: relative;
+            z-index: 1;
         }
         
+        /* النافذة المنبثقة */
         .modal {
             display: none;
             position: fixed;
@@ -524,6 +602,26 @@
         @keyframes modalFade {
             from { opacity: 0; transform: translateY(-50px) scale(0.9); }
             to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
         
         .modal h3 {
@@ -586,7 +684,7 @@
             }
             
             .hero {
-                padding: 8rem 0 4rem;
+                padding: 10rem 0 6rem;
             }
             
             .hero h1 {
@@ -595,6 +693,10 @@
             
             .hero p {
                 font-size: 1.1rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
             }
             
             .form-row {
@@ -649,7 +751,7 @@
             <nav>
                 <div class="logo">
                     <i class="fas fa-crown"></i>
-                    <span>تطوير الويب</span>
+                    <span>مركز الخرطرم</span>
                 </div>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
@@ -662,21 +764,41 @@
                 </ul>
             </nav>
         </div>
-        
     </header>
         
-    <!-- قسم البطل -->
+    <!-- قسم البطل المحسن -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>ورشة تطوير الويب لبدء مسيرة مهنية</h1>
+                <h1>ورشة تطوير الويب التفاعلية</h1>
                 <p>انضم إلى رحلتنا الإستثنائية لإكتساب مهارات المستقبل في عالم التكنولوجيا وتطوير وبرمجة مواقع الويب</p>
                 <a href="#registration" class="btn">سجل الآن <i class="fas fa-arrow-left"></i></a>
+                
+                <div class="countdown-container">
+                    <h3 style="color: var(--gold-light); margin-bottom: 1rem;">العد التنازلي لبدء الورشة</h3>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">أيام</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">ساعات</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">دقائق</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">ثواني</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-    <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-timezone="Africa/Khartoum" data-textcolor="#fff" data-date="2025-11-30 12:00" data-background="#e6ce1c" data-digitscolor="#000" data-unitscolor="#f0f2e6">العد التنازلي</a>
         </div>
     </section>
+
     <!-- قسم عن الورشة -->
     <section id="about" class="section">
         <div class="container">
@@ -712,7 +834,6 @@
                 <p>تعرف على محاور الورشة والتوقيت والمكان والاستثمار</p>
             </div>
             <div class="workshop-details">
-               <!--<a href="Counter.html" style="outline:none; border: none; font-weight: bold;color: white;text-shadow: 2px 3px 3px #122;">العد التنازلي</a>-->
                 <div class="detail-card">
                     <i class="fas fa-calendar-alt"></i>
                     <h3>التاريخ والوقت</h3>
@@ -799,8 +920,9 @@
             </div>
         </div>
     </section>
+
     <!-- قسم قائمة المسجلين -->
-    <section id="participants" class="section" style="background-color: #f0f4ff;">
+    <section id="participants" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>المسجلين في الورشة</h2>
@@ -829,7 +951,7 @@
         </div>
     </section>
 
-    <!-- نهاية الصفحة -->
+    <!-- نهاية الصفحة المحسنة -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -839,9 +961,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>اتصل بنا</h3>
-                    <p style="text-align: right;" ><i class="fas fa-envelope"><span>abotalipson@gmail.com</span></i></p>
-                    <p style="text-align: right;"><i class="fas fa-phone"><span>+249 129434516</span></i></p>
-                    <p><i class="fas fa-map-marker-alt"></i>  كوستي، ولاية النيل الأبيض</p>
+                    <p><i class="fas fa-envelope"></i> abotalipson@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +249 129434516</p>
+                    <p><i class="fas fa-map-marker-alt"></i> كوستي، ولاية النيل الأبيض</p>
                 </div>
                 <div class="footer-section">
                     <h3>تابعنا</h3>
@@ -883,6 +1005,34 @@
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
+        // العد التنازلي
+        function updateCountdown() {
+            const workshopDate = new Date('2025-11-30T09:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = workshopDate - now;
+            
+            if (distance < 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        // تحديث العد التنازلي كل ثانية
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
         
         // تحديث عرض قائمة المسجلين
         function updateParticipantsTable() {
@@ -916,7 +1066,6 @@
             e.preventDefault();
             
             // جمع بيانات 
-        
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -928,6 +1077,7 @@
                 notes: document.getElementById('notes').value,
                 registrationDate: new Date().toLocaleDateString('ar-SA')
             };
+            
             // إضافة المسجل إلى القائمة
             participants.push(formData);
             
@@ -1000,18 +1150,7 @@
                 participation: "حضوري",
                 notes: "✨ مقدم للورشة ",
                 registrationDate: "2025-11-15"
-            },
-            /*{
-                firstName: "سحر",
-                lastName: "الطاهر",
-                email: "sahar@example.com",
-                phone: "0123456789",
-                occupation: "مهندسة",
-                experience: "متوسط",
-                participation: "حضوري",
-                notes: "",
-                registrationDate: "2025-11-20"
-            }*/
+            }
         ];
 
         // تحديث الجدول عند تحميل الصفحة
